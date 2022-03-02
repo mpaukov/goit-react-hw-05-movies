@@ -8,7 +8,7 @@ export function App() {
   let navigate = useNavigate();
   useEffect(() => {
     navigate('../');
-  }, [navigate]);
+  }, []);
 
   return (
     <>
