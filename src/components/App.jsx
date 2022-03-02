@@ -8,6 +8,7 @@ export function App() {
   let navigate = useNavigate();
   useEffect(() => {
     navigate('../');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
