@@ -15,7 +15,7 @@ function HomePage() {
         data.results.map(({ id, original_title, poster_path, title }) => {
           return (
             <li key={id}>
-              <Link to={`/movie/${id}`}>
+              <Link to={`${id}`}>
                 {`Original title: ${original_title}, title:  ${title}`}
               </Link>
             </li>
