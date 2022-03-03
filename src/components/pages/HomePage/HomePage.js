@@ -36,7 +36,7 @@ function HomePage() {
           }) => {
             return (
               <FilmCard key={id}>
-                <Link to={`${id}`}>
+                <Link to={`movies/${id}`}>
                   <Poster>
                     <Image
                       src={

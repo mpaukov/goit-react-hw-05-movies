@@ -17,13 +17,20 @@ export const FilmCard = styled.li`
   a {
     text-decoration: none;
     color: inherit;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
 export const Poster = styled.div`
-  position: relative;
   border-radius: 5px;
   overflow: hidden;
+  flex-grow: 1;
+`;
+
+export const Description = styled.div`
+  padding: 10px;
 `;
 
 export const Wrapper = styled.div`
@@ -71,10 +78,6 @@ export const Rating = styled.span`
   justify-content: center;
   text-transform: uppercase;
   color: #ffffff;
-`;
-
-export const Description = styled.div`
-  padding-top: 10px;
 `;
 
 export const Title = styled.h2`

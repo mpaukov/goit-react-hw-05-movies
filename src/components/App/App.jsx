@@ -23,7 +23,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="movies" element={<About />} />
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="movies/:movieId" element={<Dashboard />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Container>
