@@ -8,7 +8,5 @@ export const Nav = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  &:not(:last-child) {
-    margin-right: 50px;
-  }
+  margin-left: 30px;
 `;

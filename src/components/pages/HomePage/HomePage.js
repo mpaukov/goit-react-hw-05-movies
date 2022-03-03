@@ -5,6 +5,15 @@ import * as movieAPI from '../../../services/movie-api';
 
 import { FilmCard, Gallery, Poster, Image } from './HomePage.styled';
 import placeholderImg from '../../../images/placeholder.bmp';
+import {
+  Description,
+  Title,
+  Wrapper,
+  Genres,
+  ReleaseDate,
+  Rating,
+  RatingWrapper,
+} from './HomePage.styled';
 
 function HomePage() {
   const [data, setData] = useState(null);
@@ -39,6 +48,23 @@ function HomePage() {
                       loading="lazy"
                     />
                   </Poster>
+                  <Description>
+                    <Title>{`Original Title: ${original_title}`}</Title>
+                    <Wrapper>
+                      <Genres>{`Genres: ${genre_ids}`}</Genres>
+                      <ReleaseDate>
+                        {`Release Date: ${
+                          release_date
+                            ? new Date(release_date).getFullYear()
+                            : 'no information'
+                        }`}
+                      </ReleaseDate>
+                      <RatingWrapper>
+                        Rating:
+                        <Rating>{vote_average}</Rating>
+                      </RatingWrapper>
+                    </Wrapper>
+                  </Description>
                 </Link>
               </FilmCard>
             );
