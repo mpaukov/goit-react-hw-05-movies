@@ -1,8 +1,11 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { HomePage } from './pages/HomePage/HomePage';
-import { Navigation } from './Navigation/Navigation';
-import { NotFoundPage } from './pages/NotFound/NotFoundPage';
 import { useEffect } from 'react';
+
+import { HomePage } from '../pages/HomePage/HomePage';
+import { Navigation } from '../Navigation/Navigation';
+import { NotFoundPage } from '../pages/NotFound/NotFoundPage';
+import { Header } from './App.styled';
+import { Container } from 'CommonStyled/CommonStyled';
 
 export function App() {
   let navigate = useNavigate();
@@ -13,15 +16,17 @@ export function App() {
 
   return (
     <>
-      <header>
+      <Header>
         <Navigation />
+      </Header>
+      <Container>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="movies" element={<About />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </header>
+      </Container>
     </>
   );
 }

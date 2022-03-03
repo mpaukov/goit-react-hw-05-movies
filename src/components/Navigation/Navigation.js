@@ -1,12 +1,14 @@
+import { Container } from 'CommonStyled/CommonStyled';
 import { NavLink } from 'react-router-dom';
 import css from './Navigation.module.css';
+import { Nav, MenuItem } from './Navigation.styled';
 
 const Navigation = () => {
   return (
-    <>
+    <Container>
       <nav>
-        <ul>
-          <li>
+        <Nav>
+          <MenuItem>
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -15,8 +17,8 @@ const Navigation = () => {
             >
               Home
             </NavLink>
-          </li>
-          <li>
+          </MenuItem>
+          <MenuItem>
             <NavLink
               to="movies"
               className={({ isActive }) =>
@@ -25,10 +27,10 @@ const Navigation = () => {
             >
               Movies
             </NavLink>
-          </li>
-        </ul>
+          </MenuItem>
+        </Nav>
       </nav>
-    </>
+    </Container>
   );
 };
 
