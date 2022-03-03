@@ -1,4 +1,4 @@
-import { Container } from 'CommonStyled/CommonStyled';
+import { Container } from 'CommonStyled/Common.styled';
 import { NavLink } from 'react-router-dom';
 import css from './Navigation.module.css';
 import { Nav, MenuItem } from './Navigation.styled';

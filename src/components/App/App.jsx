@@ -5,7 +5,7 @@ import { HomePage } from '../pages/HomePage/HomePage';
 import { Navigation } from '../Navigation/Navigation';
 import { NotFoundPage } from '../pages/NotFound/NotFoundPage';
 import { Header } from './App.styled';
-import { Container } from 'CommonStyled/CommonStyled';
+import { Container } from 'CommonStyled/Common.styled';
 
 export function App() {
   let navigate = useNavigate();
