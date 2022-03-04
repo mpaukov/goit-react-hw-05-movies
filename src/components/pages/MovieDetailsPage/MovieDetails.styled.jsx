@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
 
 export const ImageThumb = styled.div`
   margin-right: 50px;
+  flex-basis: 100%;
 `;
 
 export const Image = styled.img`
@@ -17,6 +18,7 @@ export const Image = styled.img`
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
+  flex-basis: fit-content;
 `;
 
 export const Title = styled.h2`

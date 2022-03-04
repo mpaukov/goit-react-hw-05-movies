@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   FilmCard,
@@ -16,6 +16,10 @@ import {
 import placeholderImg from '../../images/placeholder.bmp';
 
 export function Gallery({ data }) {
+  const { pathname } = useLocation();
+
+  console.log('🚀 ~ file: Gallery.js ~ line 20 ~ Gallery ~ path', pathname);
+
   return (
     <Board>
       {data &&
@@ -30,7 +34,9 @@ export function Gallery({ data }) {
           }) => {
             return (
               <FilmCard key={id}>
-                <Link to={`movies/${id}`}>
+                <Link
+                  to={pathname.includes('movies') ? `${id}` : `movies/${id}`}
+                >
                   <Poster>
                     <Image
                       src={
