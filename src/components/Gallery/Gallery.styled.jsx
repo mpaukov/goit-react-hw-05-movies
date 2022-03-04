@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Gallery = styled.ul`
+export const Board = styled.ul`
   margin: 0;
   display: flex;
   flex-wrap: wrap;
