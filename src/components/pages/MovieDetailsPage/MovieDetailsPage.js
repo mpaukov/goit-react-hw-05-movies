@@ -2,11 +2,16 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as movieAPI from '../../../services/movie-api';
 
-import { Image, Wrapper } from './MovieDetails.styled';
+import {
+  Image,
+  Label,
+  OverviewText,
+  Wrapper,
+  Description,
+  Title,
+  ImageThumb,
+} from './MovieDetails.styled';
 import placeholderImg from '../../../images/placeholder.bmp';
-import { Description } from './MovieDetails.styled';
-import { Title } from './MovieDetails.styled';
-import { ImageThumb } from './MovieDetails.styled';
 
 export function MovieDetailsPage() {
   const [data, setData] = useState(null);
@@ -19,6 +24,9 @@ export function MovieDetailsPage() {
 
   useEffect(() => {
     movieAPI.fetchDetails(movieId).then(setData);
+    return () => {
+      setData(null);
+    };
   }, [movieId]);
 
   return (
@@ -37,7 +45,19 @@ export function MovieDetailsPage() {
             />
           </ImageThumb>
           <Description>
-            <Title>{data.original_title}</Title>
+            <Title>
+              {`${data.original_title} (${
+                data.release_date
+                  ? new Date(data.release_date).getFullYear()
+                  : 'no information about release Date'
+              })`}
+            </Title>
+            <Label>Overview:</Label>
+            <OverviewText>{data.overview}</OverviewText>
+            <Label>Genres:</Label>
+            <OverviewText>
+              {data.genres.map(genre => genre.id).join(', ')}
+            </OverviewText>
           </Description>
         </Wrapper>
       )}

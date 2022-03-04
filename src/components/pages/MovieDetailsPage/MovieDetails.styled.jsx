@@ -16,8 +16,19 @@ export const Image = styled.img`
 
 export const Description = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
 export const Title = styled.h2`
   font-weight: 700;
+`;
+
+export const Label = styled.p`
+  font-size: 18px;
+  font-weight: 700;
+`;
+
+export const OverviewText = styled.p`
+  font-size: 16px;
+  font-weight: 500;
 `;
