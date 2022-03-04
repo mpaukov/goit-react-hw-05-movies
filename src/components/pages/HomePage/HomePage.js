@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import * as movieAPI from '../../../services/movie-api';
 import { Gallery } from '../../Gallery/Gallery';
 
-function HomePage() {
+export function HomePage() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -12,5 +12,3 @@ function HomePage() {
 
   return <>{data && <Gallery data={data} />}</>;
 }
-
-export { HomePage };

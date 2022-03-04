@@ -1,19 +1,17 @@
 import styled from '@emotion/styled';
 
 export const Board = styled.ul`
-  margin: 0;
+  margin: -10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
 `;
 
 export const FilmCard = styled.li`
   width: 100%;
   display: flex;
-  flex-basis: calc(100% / 2 - 30px);
-  @media screen and (min-width: 1024px) {
-    flex-basis: calc(100% / 3 - 30px);
-  }
+  flex-basis: calc(100% / 5 - 20px);
+  margin: 10px;
+
   a {
     text-decoration: none;
     color: inherit;
@@ -26,7 +24,6 @@ export const FilmCard = styled.li`
 export const Poster = styled.div`
   border-radius: 5px;
   overflow: hidden;
-  flex-grow: 1;
 `;
 
 export const Description = styled.div`
@@ -92,4 +89,5 @@ export const Title = styled.h2`
 export const Image = styled.img`
   display: block;
   max-width: 100%;
+  height: auto;
 `;

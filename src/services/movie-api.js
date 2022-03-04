@@ -17,6 +17,12 @@ export function fetchSearch(query) {
   );
 }
 
+export function fetchDetails(movieId) {
+  return fetchWithErrorHandling(
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=24c8ddc74be8f953136bc2eedf6878db`
+  );
+}
+
 //     /trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
 // /search/search-movies поиск кинофильма по ключевому слову на странице фильмов.
 // /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.

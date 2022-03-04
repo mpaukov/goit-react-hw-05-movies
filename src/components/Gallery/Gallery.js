@@ -35,7 +35,7 @@ export function Gallery({ data }) {
                     <Image
                       src={
                         poster_path
-                          ? 'https://image.tmdb.org/t/p/w500' + poster_path
+                          ? `https://image.tmdb.org/t/p/w500${poster_path}`
                           : placeholderImg
                       }
                       alt={original_title}

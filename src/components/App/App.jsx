@@ -6,7 +6,8 @@ import { NotFoundPage } from '../pages/NotFound/NotFoundPage';
 import { Header } from './App.styled';
 import { Container } from 'CommonStyled/Common.styled';
 import { HomePage } from '../pages/HomePage/HomePage';
-import { Movies } from 'components/pages/Movies/Movies';
+import { MoviesPage } from 'components/pages/MoviesPage/MoviesPage';
+import { MovieDetailsPage } from 'components/pages/MovieDetailsPage/MovieDetailsPage';
 
 export function App() {
   let navigate = useNavigate();
@@ -23,19 +24,11 @@ export function App() {
       <Container>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="movies" element={<Movies />} />
-          <Route path="movies/:movieId" element={<Dashboard />} />
+          <Route path="movies" element={<MoviesPage />} />
+          <Route path="movies/:movieId" element={<MovieDetailsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Container>
     </>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
   );
 }

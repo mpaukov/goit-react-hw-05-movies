@@ -4,7 +4,6 @@ import icon from '../../../images/search.svg';
 export const SearchForm = styled.form`
   position: relative;
   padding-left: 30px;
-  padding-right: 30px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -18,7 +17,6 @@ export const SearchForm = styled.form`
 export const Button = styled.button`
   position: absolute;
   right: 0;
-  transform: translateX(-32px);
   display: inline-block;
   width: 48px;
   height: 48px;
