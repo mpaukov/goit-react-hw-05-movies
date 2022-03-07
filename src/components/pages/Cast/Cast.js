@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import * as movieAPI from '../../../services/movie-api';
+import { Board, Card, Image, Text } from './Cast.styled';
 
 export function Cast({ movieId }) {
   const [data, setData] = useState(null);
-  console.log('🚀 ~ file: Cast.js ~ line 3 ~ Cast ~ data', data);
 
   useEffect(() => {
     movieAPI.fetchCast(movieId).then(setData);
@@ -13,21 +13,21 @@ export function Cast({ movieId }) {
   }, [movieId]);
   return (
     <>
-      <ul>
+      <Board>
         {data &&
           data.cast.map(({ original_name, character, profile_path, id }) => {
             return (
-              <li key={id}>
-                <img
+              <Card key={id}>
+                <Image
                   src={`https://image.tmdb.org/t/p/w500${profile_path}`}
                   alt={original_name}
                 />
-                <p>Name: {original_name}</p>
-                <p>Character: {character}</p>
-              </li>
+                <Text>Name: {original_name}</Text>
+                <Text>Character: {character}</Text>
+              </Card>
             );
           })}
-      </ul>
+      </Board>
     </>
   );
 }

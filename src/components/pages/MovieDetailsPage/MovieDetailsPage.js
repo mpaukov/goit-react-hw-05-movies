@@ -13,6 +13,7 @@ import {
 } from './MovieDetails.styled';
 import placeholderImg from '../../../images/placeholder.bmp';
 import { Cast } from '../Cast/Cast';
+import { Review } from '../Review/Review';
 
 export function MovieDetailsPage() {
   const [data, setData] = useState(null);
@@ -66,6 +67,7 @@ export function MovieDetailsPage() {
       )}
       <Routes>
         <Route path="cast" element={<Cast movieId={movieId} />} />
+        <Route path="reviews" element={<Review movieId={movieId} />} />
       </Routes>
     </>
   );

@@ -18,8 +18,6 @@ import placeholderImg from '../../images/placeholder.bmp';
 export function Gallery({ data }) {
   const { pathname } = useLocation();
 
-  console.log('🚀 ~ file: Gallery.js ~ line 20 ~ Gallery ~ path', pathname);
-
   return (
     <Board>
       {data &&

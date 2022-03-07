@@ -2,16 +2,20 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   display: flex;
+  margin-bottom: 15px;
 `;
 
 export const ImageThumb = styled.div`
   margin-right: 50px;
+  display: flex;
+  justify-content: flex-end;
   flex-basis: 100%;
 `;
 
 export const Image = styled.img`
   display: block;
   max-width: 100%;
+  width: 500px;
   height: auto;
 `;
 
