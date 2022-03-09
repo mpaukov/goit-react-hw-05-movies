@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import * as movieAPI from '../../../services/movie-api';
 import { Board, Card, Image, Text } from './Cast.styled';
 
-export function Cast({ movieId }) {
+export default function Cast({ movieId }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {

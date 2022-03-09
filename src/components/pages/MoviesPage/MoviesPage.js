@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState, lazy } from 'react';
 import * as movieAPI from '../../../services/movie-api';
 import { Gallery } from 'components/Gallery/Gallery';
 
 import { SearchForm, Button, Label, Input } from './MoviesPage.styled';
-import { NotFoundPage } from '../NotFound/NotFoundPage';
 
-export function MoviesPage() {
+const NotFoundPage = lazy(() => import('../NotFound/NotFoundPage.js'));
+
+export default function MoviesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [data, setData] = useState(null);
 

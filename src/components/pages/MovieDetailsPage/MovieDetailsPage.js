@@ -1,5 +1,5 @@
 import { useParams, Link, Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 import * as movieAPI from '../../../services/movie-api';
 
 import {
@@ -12,12 +12,16 @@ import {
   ImageThumb,
 } from './MovieDetails.styled';
 import placeholderImg from '../../../images/placeholder.bmp';
-import { Cast } from '../Cast/Cast';
-import { Review } from '../Review/Review';
 
-export function MovieDetailsPage() {
+const Cast = lazy(() =>
+  import('../Cast/Cast.js' /*webpackChunkName: 'Cast' */)
+);
+const Review = lazy(() =>
+  import('../Review/Review.js' /*webpackChunkName: 'Review' */)
+);
+
+export default function MovieDetailsPage() {
   const [data, setData] = useState(null);
-
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -65,10 +69,12 @@ export function MovieDetailsPage() {
           </Description>
         </Wrapper>
       )}
-      <Routes>
-        <Route path="cast" element={<Cast movieId={movieId} />} />
-        <Route path="reviews" element={<Review movieId={movieId} />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="cast" element={<Cast movieId={movieId} />} />
+          <Route path="reviews" element={<Review movieId={movieId} />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
