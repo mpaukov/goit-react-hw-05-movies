@@ -1,5 +1,5 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useEffect, lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 import { Navigation } from '../Navigation/Navigation';
 import { Header } from './App.styled';
@@ -19,12 +19,6 @@ const NotFoundPage = lazy(() =>
 );
 
 export function App() {
-  let navigate = useNavigate();
-  useEffect(() => {
-    navigate('../');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
       <Header>
@@ -34,7 +28,7 @@ export function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="movies" element={<MoviesPage />} />
+            <Route path="/movies" element={<MoviesPage />} />
             <Route path="movies/:movieId/*" element={<MovieDetailsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

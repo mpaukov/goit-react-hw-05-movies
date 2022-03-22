@@ -20,7 +20,7 @@ const Navigation = () => {
           </MenuItem>
           <MenuItem>
             <NavLink
-              to="movies"
+              to="/movies"
               className={({ isActive }) =>
                 !isActive ? `${css.link}` : `${css.activeLink}`
               }

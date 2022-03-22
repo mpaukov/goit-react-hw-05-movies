@@ -1,3 +1,5 @@
+const API_KEY = '24c8ddc74be8f953136bc2eedf6878db';
+
 async function fetchWithErrorHandling(url = '', config = {}) {
   const response = await fetch(url, config);
   return response.ok
@@ -6,31 +8,47 @@ async function fetchWithErrorHandling(url = '', config = {}) {
 }
 
 export function fetchTrending() {
+  fetchGenres();
   return fetchWithErrorHandling(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=24c8ddc74be8f953136bc2eedf6878db`
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
   );
 }
 
 export function fetchSearch(query) {
+  fetchGenres();
   return fetchWithErrorHandling(
-    `https://api.themoviedb.org/3/search/movie?api_key=24c8ddc74be8f953136bc2eedf6878db&query=${query}`
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
   );
 }
 
 export function fetchDetails(movieId) {
+  fetchGenres();
   return fetchWithErrorHandling(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=24c8ddc74be8f953136bc2eedf6878db`
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`
   );
 }
 
 export function fetchCast(movieId) {
+  fetchGenres();
   return fetchWithErrorHandling(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=24c8ddc74be8f953136bc2eedf6878db`
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`
   );
 }
 
 export function fetchReview(movieId) {
+  fetchGenres();
   return fetchWithErrorHandling(
-    `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=24c8ddc74be8f953136bc2eedf6878db`
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`
   );
+}
+
+export async function fetchGenres() {
+  if (window.localStorage.getItem('genres')) {
+    return;
+  }
+  const genres = await fetchWithErrorHandling(
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
+  );
+
+  window.localStorage.setItem('genres', JSON.stringify(genres));
 }

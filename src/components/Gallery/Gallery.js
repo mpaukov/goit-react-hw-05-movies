@@ -14,9 +14,14 @@ import {
   RatingWrapper,
 } from './Gallery.styled';
 import placeholderImg from '../../images/placeholder.bmp';
+import { genresNames } from 'services/genresName';
 
 export function Gallery({ data }) {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+
+  const genres = window.localStorage.getItem('genres')
+    ? JSON.parse(window.localStorage.getItem('genres'))
+    : [];
 
   return (
     <Board>
@@ -34,6 +39,7 @@ export function Gallery({ data }) {
               <FilmCard key={id}>
                 <Link
                   to={pathname.includes('movies') ? `${id}` : `movies/${id}`}
+                  state={{ from: pathname, search: search }}
                 >
                   <Poster>
                     <Image
@@ -49,7 +55,10 @@ export function Gallery({ data }) {
                   <Description>
                     <Title>{`Original Title: ${original_title}`}</Title>
                     <Wrapper>
-                      <Genres>{`Genres: ${genre_ids}`}</Genres>
+                      <Genres>{`Genres: ${genresNames(
+                        genre_ids,
+                        genres.genres
+                      )}`}</Genres>
                       <ReleaseDate>
                         {`Release Date: ${
                           release_date

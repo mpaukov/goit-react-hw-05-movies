@@ -1,4 +1,4 @@
-import { useParams, Link, Routes, Route } from 'react-router-dom';
+import { useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect, Suspense, lazy } from 'react';
 import * as movieAPI from '../../../services/movie-api';
 
@@ -31,6 +31,9 @@ export default function MovieDetailsPage() {
     };
   }, [movieId]);
 
+  const location = useLocation();
+  const path = location.state.from + location.state.search;
+
   return (
     <>
       {data && (
@@ -46,6 +49,8 @@ export default function MovieDetailsPage() {
               loading="lazy"
             />
           </ImageThumb>
+          <Link to={path}>Back</Link>
+
           <Description>
             <Title>
               {`${data.original_title} (${
@@ -58,7 +63,7 @@ export default function MovieDetailsPage() {
             <OverviewText>{data.overview}</OverviewText>
             <Label>Genres:</Label>
             <OverviewText>
-              {data.genres.map(genre => genre.id).join(', ')}
+              {data.genres.map(({ name }) => name).join(', ')}
             </OverviewText>
             <p>
               <Link to="cast">Cast</Link>
