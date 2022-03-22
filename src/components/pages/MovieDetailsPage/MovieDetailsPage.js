@@ -22,6 +22,7 @@ const Review = lazy(() =>
 
 export default function MovieDetailsPage() {
   const [data, setData] = useState(null);
+  const [path, setPath] = useState('/');
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -32,7 +33,12 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   const location = useLocation();
-  const path = location.state.from + location.state.search;
+
+  useEffect(() => {
+    setPath(location?.state?.from + location?.state?.search);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
