@@ -10,5 +10,9 @@ Working with
 
 # stack
 
-React <br> gh-pages: https://mpaukov.github.io/goit-react-hw-05-movies/ <br>
-netlify: https://mpaukov-goit-react-hw-05-movies.netlify.app/
+React <br>
+
+# pages
+
+gh-pages: https://mpaukov.github.io/goit-react-hw-05-movies/ <br> netlify:
+https://mpaukov-goit-react-hw-05-movies.netlify.app/
